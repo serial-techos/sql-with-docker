@@ -1,0 +1,9 @@
+postgres:
+  SQL_CMD: "psql -U postgres -a -f /query.sql"
+  DOCKER_ENV: "-e POSTGRES_PASSWORD=mysecretpassword"
+  VERSION: 13
+
+mysql:
+  SQL_CMD: "mysql -uroot -proot -D mysql < /query.sql"
+  DOCKER_ENV: "-e MYSQL_ROOT_PASSWORD=root"
+  VERSION: latest
