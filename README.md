@@ -38,12 +38,14 @@ cd sql-with-docker
 
 ### 1. File Execution Mode
 
-Use this mode to execute SQL from a file on a database server.
+Execute SQL scripts in one go. In this mode, quickly run queries directly from a file.
 
+
+**Execute SQL from a file:**
 ```bash
 ./docker-sql.sh /path/to/query.sql <sql-db-keyword>
 ```
-Replace `/path/to/query.sql` with the path to your SQL file, and `sql-db-keyword` with the keyword for your desired SQL database (e.g., `postgres` or `mysql`).
+
 > This keyword should be the docker image name found in [Docker Hub](https://hub.docker.com/).
 
 
@@ -53,25 +55,25 @@ For example, to execute the `users.sql` script on a MySQL instance:
 ./docker-sql.sh examples/users.sql mysql
 ```
 
+Here's a more concise version of the "Interactive Mode" section:
+
 ### 2. Interactive Mode
+In this mode, edit and execute your SQL files multiple times, just like in an SQL console.
 
-Use this mode to run SQL interactively on a database server. When in this mode, you'll be dropped into a bash CLI where you can use the command `run-query` followed by the path to the SQL file you want to execute.
-
+**Run SQL interactively**:
 ```bash
 ./docker-sql.sh client /path/to/queries/ <sql-db-keyword>
 ```
-
-For example, to run interactively on a PostgreSQL instance:
-
+**Example for PostgreSQL**:
 ```bash
 ./docker-sql.sh client examples/ postgres
 ```
-
-In the container , run:
-
+**Inside the container, execute**:
 ```bash
 run-query examples/users.sql
 ```
+
+This shortened version retains all the essential details while being more succinct.
 
 
 
