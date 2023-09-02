@@ -6,15 +6,7 @@ if [ "$#" -ne 2 ]; then
     exit 1
 fi
 
-get_config() {
-    local section="$1"
-    local key="$2"
-    local file="$3"
-
-    # Extract the value using yq for the older Python-based version
-    value=$(yq ".$section.$key" "$file")
-    echo $value
-}
+source utils.sh
 # Define a constant for the container name
 CONTAINER_NAME="sql_container"
 
@@ -40,7 +32,7 @@ fi
 docker run --name $CONTAINER_NAME -e $DOCKER_ENV -d $IMAGE_NAME
 
 # Wait for SQL server to initialize
-sleep 5
+sleep 10
 
 # Copy the SQL file into the container
 docker cp $SQL_FILE $CONTAINER_NAME:/query.sql
